@@ -6,14 +6,25 @@ android_app_import {
 		enabled: false,
 	},
 	privileged: true,
+    system_ext_specific: true,
     required: [
         "privapp_whitelist_com.havoc.updater",
+        "default-permissions_com.havoc.updater"
     ],
 }
 
 prebuilt_etc {
     name: "privapp_whitelist_com.havoc.updater",
-    src: "prebuilt/etc/permissions/privapp_whitelist_com.havoc.updater.xml",
+    system_ext_specific: true,
     sub_dir: "permissions",
+    src: "prebuilt/etc/permissions/privapp_whitelist_com.havoc.updater.xml",
+    filename_from_src: true,
+}
+
+prebuilt_etc {
+    name: "default-permissions_com.havoc.updater",
+    system_ext_specific: true,
+    sub_dir: "default-permissions",
+    src: "prebuilt/etc/permissions/default-permissions_com.havoc.updater.xml",
     filename_from_src: true,
 }
